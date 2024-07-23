@@ -1,0 +1,10 @@
+[east]
+
+[west]
+serverp
+serverq
+
+[big:children]
+east
+west
+#group1

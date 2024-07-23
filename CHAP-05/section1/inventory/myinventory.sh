@@ -1,8 +1,8 @@
 #!/bin/bash
-APPLE1=`shuf -n 1 a.list`
-APPLE2=`shuf -n 1 a.list`
-APPLE3=`shuf -n 1 a.list`
-APPLE4=`shuf -n 1 a.list`
+APPLE1=`shuf -n 1 ldap`
+APPLE2=`shuf -n 1 ldap`
+APPLE3=`shuf -n 1 ldap`
+APPLE4=`shuf -n 1 ldap`
 cat << EOF
 {
 "group1": {

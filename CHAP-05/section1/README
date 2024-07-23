@@ -1,0 +1,18 @@
+Ansible supports two types of dynamically generated inventories:
+• Inventory plug-ins
+• Inventory scripts
+To list inventory plugins
+ansible-navigator doc --mode stdout --type inventory --list
+
+To access documentation
+ansible-navigator doc --mode stdout --type inventory  redhat.satellite.foreman
+
+Control that order by setting the enable_plugins directive under the inventory section in your ansible.cfg configuration file.
+REDHAT RECOMMENDS DEVELOPING INVENTORY PLUG-INS INSTEAD OF INVENTORY SCRIPTS.
+
+ansible-navigator inventory -m stdout -i inventory --list
+
+ansible-navigator run -i ./inventoryscript  playbook.yml
+
+inventory directory -alphabeticalorder
+inventory_ignore_extensions
