@@ -1,0 +1,24 @@
+---
+- name: demo
+  hosts: east
+  #Ansible 2.5 and later, the query function can be used instead of lookup to call lookup plug-ins
+  #lookup-comma separated list
+  #query-returns list
+  #file plugin will read files that areon CONTROL NODE
+  vars:
+   myfiles:
+    - a.conf
+    - b.conf
+    
+  tasks:
+   #- name: Display1
+    # debug:
+     #  msg: "{{ lookup('file','a.conf','b.conf') }}"
+    #- name: Display2
+     # debug:
+      # msg: "{{ query('file','a.conf','b.conf')}}"
+   - name: Display3
+     debug:
+       #msg: "{{ query('file','a.yaml')|from_yaml}}"
+       msg: "{{ query('file','a.yaml')|to_json}}"
+...

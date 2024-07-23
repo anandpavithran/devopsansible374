@@ -1,0 +1,15 @@
+---
+- name: Demo1
+  hosts: east
+  #become: true
+  tasks:
+    - name: SHow the user id
+      debug:
+        var:  ansible_user_id
+- name: Demo2
+  hosts: west
+#  become: False
+  tasks:
+    - name: SHow the user id
+      debug:
+        var:  ansible_user_id

@@ -1,0 +1,9 @@
+---
+- name: demo
+  hosts: workstations1
+  tasks:
+  - name: Display
+    debug:
+     msg: "{{ hostvars['test1.example.com'].var1}}"
+
+...

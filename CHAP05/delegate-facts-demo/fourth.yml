@@ -1,0 +1,19 @@
+ - hosts: web
+   tasks:
+    - name: Create a folder
+      file:
+        path: /tmp/output
+        state: directory
+      delegate_to: localhost
+    - name: Print
+      template: 
+        src: mytemplate.j2
+        dest: /tmp/output/output-{{ansible_hostname}}.csv
+      delegate_to: localhost
+      delegate_facts: true
+    - name: append
+      assemble: 
+        src: /tmp/output/
+        dest: /tmp/Mergedfile.csv
+      delegate_to: localhost
+

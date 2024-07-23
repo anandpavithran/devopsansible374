@@ -1,0 +1,15 @@
+---
+- name: demo
+  hosts: all
+  vars:
+   pkg:
+    - httpd
+    - vsftpd
+    - dialog
+  tasks:
+   - name: display
+     debug:
+      msg: "{{item}}"
+     #loop: "{{pkg}}"
+     loop: "{{lookup('list', pkg)}}"
+...

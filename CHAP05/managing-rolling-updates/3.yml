@@ -1,0 +1,10 @@
+- name: demo
+  hosts: all
+  serial: 25%
+  tasks:
+   - name: task1
+     command: uptime
+   - name: task2
+     command: uname -a
+   - name: task3
+     command: date

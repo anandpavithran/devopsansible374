@@ -1,0 +1,6 @@
+[east]
+#test1 ansible_host=test1.example.com ansible-python_interpreter=/usr/bin/python2.7 #ansible_user=devops 
+test1
+[west]
+#test2 ansible_host=test2.example.com  #ansible_user=devops
+test2 

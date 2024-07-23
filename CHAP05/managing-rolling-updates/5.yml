@@ -1,0 +1,14 @@
+#f there are unprocessed hosts remaining after the last batch corresponding to the last entry of the serial keyword, the last batch size is repeated until all hosts are processed.
+- name: setting batch size to change
+  hosts: all
+  serial: 
+   - 1
+   - 10%
+   - 100%
+  tasks:
+   - name: task1
+     command: uptime
+   - name: task2
+     command: uname -a
+   - name: task3
+     command: date

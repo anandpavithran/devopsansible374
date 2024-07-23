@@ -1,0 +1,10 @@
+localhost
+[east]
+test1.example.com
+[west]
+test2.example.com
+
+[north:children]
+east
+west
+#odd.example.com

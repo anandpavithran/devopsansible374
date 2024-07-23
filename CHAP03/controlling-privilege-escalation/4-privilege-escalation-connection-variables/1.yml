@@ -1,0 +1,13 @@
+---
+- name: Demo1
+  hosts: east
+  tasks:
+    - name: SHow the user id
+      debug:
+        var:  ansible_user_id
+- name: Demo2
+  hosts: west
+  tasks:
+    - name: SHow the user id
+      debug:
+        var:  ansible_user_id

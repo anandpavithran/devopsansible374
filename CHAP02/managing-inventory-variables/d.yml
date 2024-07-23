@@ -1,0 +1,18 @@
+---
+#inventory
+#playbook
+#task
+#group_var
+#host_vars
+#role -vars,default
+
+- name: Demo
+  hosts: all
+  vars_prompt: 
+   - name: var2
+     prompt: "enter variable:"
+  tasks:
+   - name: Display1
+     debug:
+      msg: "{{var2}}"
+...

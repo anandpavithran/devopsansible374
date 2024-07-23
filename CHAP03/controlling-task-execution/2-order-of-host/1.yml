@@ -1,0 +1,13 @@
+---
+  - name: Demo playbook
+    hosts: east
+    #order: reverse_inventory
+    order: shuffle
+    tasks:
+      - name: task1
+        debug:
+          msg: main task 
+
+    
+        
+        

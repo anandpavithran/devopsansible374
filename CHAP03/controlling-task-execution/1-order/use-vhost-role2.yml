@@ -1,0 +1,39 @@
+---
+  - name: use vhost role playbook
+    hosts: webservers
+    tasks:
+      - name: I am froM main TASK
+        copy: 
+         content: I am from the main task
+         dest: /tmp/a.txt
+        notify: handler1
+      - name: include/import
+        #import_role: 
+         #name: myvhost
+        include_role: 
+         name: myvhost
+    pre_tasks:
+      - name:  Begning web server configuration.
+        copy: 
+         content: I am from the pre task
+         dest: /tmp/b.txt
+        notify: handler2
+    post_tasks:
+      - name: Web server has been configured. 
+        copy: 
+         content: I am from the post task
+         dest: /tmp/c.txt
+        notify: handler3
+    handlers:
+      - name: handler1
+        debug:
+          msg: I am the handler for main task
+      - name: handler2
+        debug:
+          msg: I am the handler for pre task
+      - name: handler3
+        debug:
+          msg: I am the handler for post task
+    
+        
+        

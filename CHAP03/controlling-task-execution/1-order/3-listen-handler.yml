@@ -1,0 +1,37 @@
+---
+  - name: use vhost role playbook
+    hosts: webservers
+    tasks:
+      - name: task1
+        copy: 
+         content: task11
+         dest: /tmp/a.txt
+        notify: handler1
+      - name: task2
+        copy: 
+         content: task22
+         dest: /tmp/b.txt
+        notify: myhandler4
+
+    handlers:
+      - name: myhandler1
+        debug:
+          msg:  i am from handler1
+        listen: handler1
+      - name: myhandler2
+        debug:
+          msg:  i am from handler2
+        listen: handler1
+      - name: myhandler3
+        debug:
+          msg:  i am from handler3
+        listen: handler1
+      - name: myhandler4
+        debug:
+          msg:  i am from handler4
+      - name: handler1
+        debug:
+          msg:  i am from handler5
+    
+        
+        

@@ -1,0 +1,18 @@
+---
+   - name: Play 1 to deploy webserver
+     hosts: test1.example.com
+     become: yes
+     remote_user: devops
+     tasks:
+      - name: Print
+        debug:
+          msg: "{{item}}"
+        #with_lines:
+        #loop: "{{lookup('file','file1.txt').splitlines()}}"
+         #- cat file1.txt
+        #with_file:
+        with_random_choice:
+         - file1.txt
+         - file2.txt
+
+... 

@@ -1,0 +1,6 @@
+[web]
+test1.example.com
+test2.example.com
+[ha]
+test3.example.com
+

@@ -1,0 +1,23 @@
+- name: demo
+  hosts: lb_servers
+  tasks:
+   - name: display
+     debug: 
+      msg: "{{alternate_server}}"
+- name: demo2
+  hosts: backend_server_pool
+  tasks:
+   - name: display
+     debug: 
+      msg: "{{alternate_server}}"
+  
+#[lb_servers]
+#test1.example.com
+#[web_servers]
+#test1.example.com
+#test2.example.com
+#[web_servers:vars]
+#alternate_server=serverd.lab.example.com
+#[backend_server_pool]
+#test1.example.com
+#test2.example.com

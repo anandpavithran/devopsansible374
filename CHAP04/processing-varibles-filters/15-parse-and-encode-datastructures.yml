@@ -1,0 +1,15 @@
+---
+- name: Convert between JSON and YAML format
+  hosts: east
+  vars:
+   hosts:
+   - name: bastion
+     ip:
+      - 172.25.250.254
+      - 172.25.252.1
+   hosts_json: '[{"name": "bastion", "ip": ["172.25.250.254", "172.25.252.1"]}]'
+  tasks:
+  - name: verify    
+    assert:
+      that:
+       - "'{{ hosts | to_json }}' is eq( hosts_json )"

@@ -1,0 +1,26 @@
+---
+  - name: use vhost role playbook
+    hosts: webservers
+    tasks:
+      - name: task1
+        copy: 
+         content: task11
+         dest: /tmp/a.txt
+        notify: handler1
+      #- meta: flush_handlers
+      - name: task2
+        copy: 
+         content: task22
+         dest: /tmp/b.txt
+        notify: handler2
+
+    handlers:
+      - name: handler1
+        debug:
+          msg: handler1
+      - name: handler2
+        debug:
+          msg: handler2
+    
+        
+        

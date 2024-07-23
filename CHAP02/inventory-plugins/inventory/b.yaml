@@ -1,0 +1,23 @@
+# END WITH :
+# One advantage that the YAML syntax has over the INI syntax is that it organizes both the lists of servers and the list of nested groups in the same place in the static inventory file.
+ungrouped:
+  hosts:
+    alone.lab.example.com:
+lb_servers:
+  hosts:
+    servera.lab.example.com:
+web_servers:
+  hosts:
+    serverb.lab.example.com:
+    serverc.lab.example.com:
+backend_server_pool:
+  hosts:
+    server[b:f].lab.example.com:
+big:
+  hosts:
+    example1.lab.example.com:
+  children:
+    lb_servers:
+    web_servers:
+    backend_server_pool:
+

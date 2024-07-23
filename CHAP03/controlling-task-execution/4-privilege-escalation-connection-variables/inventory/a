@@ -1,0 +1,4 @@
+[east]
+test1.example.com ansible_become=true
+[west]
+test2.example.com 

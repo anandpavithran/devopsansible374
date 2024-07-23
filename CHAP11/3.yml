@@ -1,0 +1,11 @@
+#When you need to pass characters that are invalid for URL, such as „ < > # % \ | ^ [ ] ` spaces. For instance, whitespace is not a valid URL character, since it would be ambiguous to spot the full URL in texts if they would contain whitespaces.
+#When you need to pass characters that are reserved for URL, such as ! # $ % & ' ( ) * + , / : ; = ? @ [ ]. For instance, ? is reserved to mark start of query parameters, and if we do not encode ? in the path or inside query parameter, it might break the syntax.
+---
+- name: demo
+  hosts: test1.example.com
+  tasks:
+   - name: task1 
+     debug: 
+      msg: "{{'http://example.com?name' | urlencode }}"
+   - command : ls
+...

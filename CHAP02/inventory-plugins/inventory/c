@@ -1,0 +1,4 @@
+[monitoring]
+watcher.lab.example.com
+[monitoring:vars]
+smtp_relay=smtp.lab.example.com

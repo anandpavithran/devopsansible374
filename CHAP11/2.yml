@@ -1,0 +1,11 @@
+- name: demo
+  hosts: test1.example.com
+  tasks:
+   - name: task1
+     uri:
+       url: http://test1.example.com  
+       return_content: yes
+     register: apple
+     failed_when: "'DO447' not in apple.content"
+   - debug: 
+       var: apple

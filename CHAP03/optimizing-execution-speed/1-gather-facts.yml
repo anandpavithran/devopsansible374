@@ -1,0 +1,9 @@
+---
+- name: demo
+  hosts: all
+  gather_facts: False
+  tasks:
+   - name: task1
+     debug:
+      msg: "This is a test"
+...

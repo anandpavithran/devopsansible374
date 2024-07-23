@@ -1,0 +1,11 @@
+---
+- name: demo
+  hosts: east
+   #getting content from URL 
+  #{{ lookup('k8s', kind='Deployment', namespace='ns', resource_name='my_res') }}
+  #k8s plug-in is a lookup plug-in. Its primary purpose is to extract information from the Kubernetes cluster, not to update it. Use the k8s module to manage a Kubernetes cluster.
+  #Custom plug-ins can be made available to playbooks by dropping the appropriate Python script in a lookup_plugins directory next to the Ansible Playbook file.
+  tasks:
+   - name: Display1
+     debug:
+      msg: "{{ lookup('url', 'http://192.168.122.193') }}"

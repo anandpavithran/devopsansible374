@@ -1,0 +1,10 @@
+---
+- name: demo
+  hosts: workstations1
+  tasks:
+  - name: INstall
+    yum:
+     name: httpd
+     state: present
+
+...

@@ -1,0 +1,23 @@
+---
+- name: demo
+  hosts: east
+  #pipe and lines plug-ins both run a command on the Ansible control node
+  #pipe -raw output
+  #line- split in to lines
+    
+  tasks:
+   - name: Display1
+     template:
+      src: mytemplate2.j2
+      dest: /tmp/output1.txt
+   - name: Display2
+     template:
+      src: mytemplate3.j2
+      dest: /tmp/output2.txt
+   - name: Prints the first line of some files
+     debug:
+      msg: "{{ item[0] }}"
+     loop:
+      - "{{ query('lines', 'cat files/a.txt') }}"
+      - "{{ query('lines', 'cat files/b.txt') }}"
+...

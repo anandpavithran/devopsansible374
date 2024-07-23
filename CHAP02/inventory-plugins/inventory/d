@@ -1,0 +1,4 @@
+[workstations]
+test1.example.com
+localhost ansible_connection=local
+test2.example.com

@@ -1,0 +1,16 @@
+---
+- name: demo
+  hosts: test1.example.com
+  vars:
+   pkg: httpd
+  tasks:
+  - name: Display
+    debug:
+     #msg: test1: hello
+     #msg: test1:hello
+     #msg: 'test1 : hello'
+     #msg: "test1 : hello"
+     msg: "{{pkg}}"
+     
+
+...

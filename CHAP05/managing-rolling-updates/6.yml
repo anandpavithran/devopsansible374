@@ -1,0 +1,16 @@
+#By default, Ansible only halts play execution when all hosts in a batch experience a failure.However, you might want a play to abort if more than a certain percentage of hosts in the inventory have failed, even if no entire batch has failed.
+#a "fail fast" strategy, set the max_fail_percentage to a value of zero.
+- name: Setting failure behaviour
+  hosts: all
+  max_fail_percentage: 30%
+  serial: 
+   - 2 #30% of 2 -0.6 approx 1 host failure causes execution to stop
+   - 10% #10% of 9=.9==1 ,30% of 1=0.3==1
+   - 100%
+  tasks:
+   - name: task1
+     command: uptime
+   - name: task2
+     command: uname -a
+   - name: task3
+     command: date

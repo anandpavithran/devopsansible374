@@ -1,0 +1,30 @@
+---
+- name: Demo
+  hosts: east
+  vars:
+   string1: THIS IS A DEMO 
+   string2: asdfg
+ 
+  tasks:
+   - name: Display1-lower
+     debug:
+      msg: "{{string1|lower}}"
+   - name: Display2-capitalize
+     debug:
+      msg: "{{string1|capitalize}}"
+   - name: Display3-upper
+     debug:
+      msg: "{{string2|upper}}"
+   - name: Display4-replace
+     debug:
+      msg: "{{string2|replace('sd','wagonr')}}"
+   - name: Test results of regex search 
+     debug:
+      #msg: "{{ 'foobar' | regex_replace('^f.*o(.*)$', '\\1') }}" 
+      msg: "{{ 'foobar' | regex_replace('^f.*o(.*)$', 'abc\\1xyz') }}" 
+   - name: Test results of regex search 
+     debug:
+      msg: "{{ 'marvin, arthur' | regex_search('ar\\S*r') }}"
+   - name: Test results of search-and-replace
+     debug:
+      msg: "{{ 'arthur up' | regex_replace('ar(\\S*)r','\\1mb') }}" 

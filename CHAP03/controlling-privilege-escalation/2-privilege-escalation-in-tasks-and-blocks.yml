@@ -1,0 +1,22 @@
+---
+- name: Demo1
+  hosts: all
+  become: False
+  tasks:
+  - name: SHow the user id1
+    debug:
+     var:  ansible_user_id
+  - name: copying
+    copy : src=b.txt dest=/etc/hello
+    ignore_errors: yes
+  - block: 
+    - name: SHow the user id2
+      yum:
+        name: dialog
+        state: absent 
+    - name: show the user 
+      debug:
+        var: ansible_user_id
+    - copy : content=hello1 dest=/etc/hello1
+    become: true
+

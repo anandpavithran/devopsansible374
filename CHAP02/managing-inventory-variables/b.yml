@@ -1,0 +1,44 @@
+---
+- name: Demo
+  hosts: all
+  vars:
+   var1: apple
+   vars3: grapes
+  vars_prompt:
+   - name: username
+     prompt: What is your username?
+     private: no
+
+   - name: password
+     prompt: What is your password?
+  vars_files:
+   - var2.yml
+  tasks:
+   - name: Display1
+     debug:
+      msg: "{{var1}} {{username}} {{password}} {{var2}}"
+   - name: Display2
+     vars:
+      var3: grapes_from_task
+     debug:
+      msg: "{{var3}}"
+   #- name: set fact
+     #set_fact:
+      #ansible_fqdn: pineapple
+   - name: Display3
+     debug:
+       msg: "{{ansible_fqdn}}"
+   - name: Include varibales
+     include_vars: var4.yml
+   - name: Display5
+     debug:
+      msg: "{{var4}}"
+   - block:
+       - name: Display vars in block
+         debug:
+          msg: "{{var1}}{{var2}}{{var3}}"
+     vars: 
+       var1: from_block1
+       var2: from_block2
+       var3: from_block3
+...

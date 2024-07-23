@@ -1,0 +1,18 @@
+---
+#Handling lookup error
+- name: demo
+  hosts: east
+  vars:
+   var1: "{{ lookup('file', 'my.file', errors='warn')|default('5',True) }}"
+  
+  tasks:
+   - name: Display1
+     debug:
+      #msg: "{{ lookup('file', 'my.file', errors='strict') | default('Default') }}"
+      #msg: "{{ lookup('file', 'my.file', errors='ignore') }}"
+      msg: "{{ lookup('file', 'my.file', errors='warn')|default('THis is deafult') }}"
+      #var: var1
+   - name: Display2
+     debug:
+      msg: "test"
+

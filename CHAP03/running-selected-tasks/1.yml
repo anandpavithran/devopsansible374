@@ -1,0 +1,41 @@
+---
+- name: Demo of tags
+  hosts: east
+  tasks:
+   - block:
+     - name: blocktask1
+       debug:
+        msg: i am from blocktask1
+     - name: blocktask2
+       debug:
+        msg: i am from blocktask2
+     tags:
+     - first
+   - name: main task1
+     debug:
+      msg: i am from maintask1
+     tags:
+     - second
+   - name: main task2
+     debug:
+      msg: i am from maintask2
+     tags:
+     - never
+   - name: main task3
+     debug:
+      msg: i am from maintask3-always
+     tags:
+     - always
+   - name: main task4
+     debug:
+      msg: i am from maintask4-untagged
+  roles: 
+   - {role: myvhost, tags: ['third']}
+  
+ 
+  
+   
+
+    
+   
+...

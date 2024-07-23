@@ -1,0 +1,15 @@
+---
+#inventory
+#playbook
+#task
+#group_var
+#host_vars
+#role -vars,default
+
+- name: Demo
+  hosts: all
+  tasks:
+   - name: Display1
+     debug:
+      msg: "{{var1}}"
+...

@@ -1,0 +1,22 @@
+---
+- name: demo
+  hosts: test1.example.com
+  tasks:
+   - name: task1
+     yum: 
+      name:
+        - httpd
+        - vsftpd
+      state: present
+   - name: task2
+     copy:
+      content: test4
+      dest: /tmp/test1
+ #  - name: task2
+  #   service:
+   #   name: "{{item}}"
+    # loop: 
+     #   - httpd
+      #  - vsftpd
+
+...

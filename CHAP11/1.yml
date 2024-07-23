@@ -1,0 +1,7 @@
+- name: demo
+  hosts: test1.example.com
+  tasks:
+   - name: task1
+     uri:
+       url: http://test1.example.com  
+
