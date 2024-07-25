@@ -1,0 +1,16 @@
+---
+- name: checking-varible
+  hosts: east
+  vars:
+   var1: 42.1
+  tasks:
+   - name: Display1
+     debug:
+      #msg: "{{(var1| int) + 1 }}" 
+      msg: "{{(var1| float) + 1 }}" 
+   - name: Display2
+     debug:
+      msg: "{{ 144 | root }}" 
+     
+   
+...

@@ -1,5 +1,0 @@
-monitoring:
-  hosts:
-    watcher.lab.example.com:
-  vars:
-    smtp_relay: smtp.lab.example.com

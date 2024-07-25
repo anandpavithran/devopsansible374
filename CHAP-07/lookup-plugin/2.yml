@@ -1,0 +1,16 @@
+---
+- name: demo
+  hosts: east
+  #template plug-in expects the file contents to be a Jinja2 template, and evaluates that template before applying the contents
+    
+  tasks:
+   - name: Display1
+     debug:
+       msg: "{{ lookup('template','mytemplate.j2') }}"
+   - name: Display2
+     debug:
+       msg: "{{ lookup('env','USER')}}"
+   - name: Display3
+     debug:
+       msg: "{{ lookup('file','a.yaml')|from_yaml}}"
+...

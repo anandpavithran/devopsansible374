@@ -6,8 +6,8 @@
   tasks:
    - name: Diplay1
      debug:
-      msg: "{{name1}}" 
-      #msg: "{{name1|mandatory}}" 
+      #msg: "{{name1}}" 
+      msg: "{{name1|mandatory}}" 
     
      
    

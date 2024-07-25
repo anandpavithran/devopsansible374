@@ -1,0 +1,22 @@
+---
+- name: demo-strings-linebreak-and-retain
+  hosts: east
+  vars:
+   name: anand
+   num1: 2468
+  tasks:
+   - name: Diplay1
+     debug:
+      msg: "{{name | capitalize}}" 
+   - name: Diplay2
+     debug:
+      msg: "{{num1 | capitalize}}" 
+   - name: Diplay3
+     debug:
+      msg: "{{ [1,4,2,2] | unique | sort }}" 
+   - name: Test to see if the assertion is true, fail if not
+     assert:
+       that:
+         - "{{ [ 1, 4, 2, 2 ] | unique | sort }} is eq( [ 1, 2, 4 ] )"
+   
+...

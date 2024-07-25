@@ -1,0 +1,11 @@
+---
+- name: demo-strings-linebreak-and-retain
+  hosts: east
+  tasks:
+   - name: Diplay
+     debug: 
+      msg: 
+       Hello
+       this is
+       a demo
+...

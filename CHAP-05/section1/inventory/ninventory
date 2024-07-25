@@ -1,0 +1,16 @@
+[east]
+
+[west]
+serverp 
+serverq
+[west:vars]
+http_port=8080
+
+[north]
+serverp
+serverq
+
+[big:children]
+east
+west
+group1

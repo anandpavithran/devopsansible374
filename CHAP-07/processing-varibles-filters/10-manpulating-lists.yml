@@ -1,0 +1,43 @@
+---
+- name: checking-varible
+  hosts: east
+  tasks:
+   - name: Display1
+     debug:
+      msg: "{{[2, 4, 6, 8, 10, 12] | sum }}" 
+      #msg: "{{[2, 4, 6, 8, 10, 12] | min }}" 
+      #msg: "{{[2, 4, 6, 8, 10, 12] | sum }}" 
+   - name: All
+     assert:
+      that:
+       - "{{[ 2, 4, 6, 8, 10, 12 ] | length }} is eq( 6 )"
+       - "{{[ 2, 4, 6, 8, 10, 12 ] | first }} is eq( 2 )"
+       - "{{[ 2, 4, 6, 8, 10, 12 ] | last }} is eq( 12 )"
+   - name: Display2
+     debug:
+      msg: "{{[5,6,7] | random }}" 
+   - name: Display3
+     debug:
+      msg: "{{ [ 2, 4, 6, 8, 10 ] | reverse | list }}"
+      #msg: "{{ [ 2, 4, 6, 8, 10 ] | sort| list }}"
+   - name: Display4
+     debug:
+      msg: "{{ [ 2, [4, [6, 8]], 10 ] | flatten }}"
+   - name: Display5
+     debug:
+      msg: "{{ [1,1,2,2,3,3,4,4]| unique | list }}"
+   - name: Display6
+     debug:
+      msg: "{{ [1,2,3,4]| union([5,6,7,8]) }}"
+   - name: Display7
+     debug:
+      msg: "{{ [1,2,3,4]| intersect([4,5,6,7,8]) }}"
+   - name: Display8-returns a set with elements from first set that are not present in the second set.
+     debug:
+      msg: "{{ [1,2,3,4]| difference([3,4,7,8]) }}"
+   - name: Display9
+     debug:
+      msg: "{{ [1,2,3,4]| symmetric_difference([3,4,7,8]) }}"
+  
+   
+...

@@ -1,0 +1,24 @@
+---
+- name: Manipulating dictionaries
+  hosts: east
+  vars:
+   fruits_dic:
+    fruit1: apple
+    fruit2: grapes
+    fruit3: mango
+   course_list:
+    - key: course1
+      value: rhce
+    - key: course2
+      value: rhcsa
+   
+  tasks:
+   - name: Display1-Joining dictionaries
+     debug:
+      msg: "{{{'A':1,'B':2}|combine({'B':4,'C':5})}}"
+   - name: Display2-Reshaping dictionaries-to list
+     debug:
+      msg: "{{fruits_dic | dict2items}}"
+   - name: Display1-Reshaping items-to-dictionaries
+     debug:
+      msg: "{{course_list | items2dict}}"

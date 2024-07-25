@@ -1,0 +1,11 @@
+---
+- name: demo
+  hosts: servera.lab.example.com
+  vars_files:
+   - var1.yml 
+  tasks:
+   - name: display
+     debug:
+     # msg: "{{item.0.name}} {{ lookup('file', item.1) }}"
+     loop: "{{ users | subelements('authorized') }}"
+...

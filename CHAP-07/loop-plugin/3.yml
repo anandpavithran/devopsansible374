@@ -1,0 +1,27 @@
+---
+- name: demo
+  hosts: servera.lab.example.com
+   
+  vars:
+   var1: 
+    - a.txt
+    - b.txt
+   var2: 
+    - c.txt
+    - d.txt
+   mygroup:
+    - "{{var1}}}"
+    - "{{var2}}}"
+   myfiles:
+    - file1.txt
+    - file2.txt
+  tasks:
+   - name: display
+     debug:
+      msg: "{{item}}"
+     #loop: "{{mygroup}}"
+     #loop: "{{mygroup}}"
+     #with_items: "{{mygroup}}"
+     #loop: "{{myfiles}}"
+     with_nested: "{{myfiles}}"
+...

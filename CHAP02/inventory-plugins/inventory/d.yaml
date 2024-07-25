@@ -1,8 +1,0 @@
-workstations1:
-  hosts:
-    test1.example.com:
-      ansible_connection: ssh
-      var1: apple
-    #localhost:
-     # ansible_connection: local
-    test2.example.com:

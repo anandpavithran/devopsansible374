@@ -1,0 +1,14 @@
+---
+- name: Gather network subset
+  hosts: east
+  tasks:
+   - name: Collect
+     setup:
+      gather_subset:
+         - '!all'
+         - network 
+     register: apple
+   - name: display
+     debug:
+      var: apple
+...

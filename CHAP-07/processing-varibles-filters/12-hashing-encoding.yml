@@ -1,0 +1,26 @@
+---
+- name: Demo
+  hosts: east
+  vars_prompt:
+   - name: username
+     prompt: What is your username?
+     private: no
+
+   - name: password
+     prompt: What is your password?
+  vars:
+   string: THIS IS A DEMO 
+ 
+  tasks:
+   - name: Display1-password hashing
+     debug:
+      msg: "{{username}} {{password|password_hash('sha512')}}"
+   - name: Display2-base
+     debug:
+      msg: "{{'test'|b64encode}}"
+   - name: Display3-base
+     debug:
+      msg: "{{'dGVzdAo='|b64decode}}"
+   - name: Display4-quote
+     debug:
+      msg: "{{string|quote}}"

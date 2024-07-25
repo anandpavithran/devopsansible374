@@ -1,0 +1,23 @@
+#WILL OUTPUT ONLY VALID IPADDRESS
+- name: demo
+  hosts: servera
+  vars:
+   myip:
+    - 192.168.0.1
+    - 224.225.6.1
+    - 256.0.1.256
+    - 355.1.2.3
+   mynet:
+    - 192.168.0.2/23
+    - 223.224.1.3/32
+    - 192.168.0.0/24
+  tasks:
+   - name: Display1
+     debug:
+      msg: "{{myip|ipaddr}}"
+   - name: Display2
+     debug:
+      msg: "{{ mynet| ipaddr('netmask') }}"
+      #msg: "{{ mynet| ipaddr(255) }}"
+  
+ 

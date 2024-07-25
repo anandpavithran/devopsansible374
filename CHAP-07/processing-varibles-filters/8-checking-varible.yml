@@ -1,0 +1,17 @@
+---
+- name: checking-varible
+  hosts: east
+  tasks:
+   - name: Display1
+     debug:
+      msg: "{{name1 | default(5,True)}}"
+     # msg: "{{name1}}"
+   #- name: Display2
+    # debug:
+      #msg: "{{ lookup('env', 'MY_USER') | default('admin', true) }}"
+      #msg: "{{ lookup('env', 'MY_USER')}}"
+     # msg: "{{ lookup('env', 'MY_USER') | default(omit) }}"
+      #msg: "{{ lookup('env', 'USER') }}"
+     
+   
+...

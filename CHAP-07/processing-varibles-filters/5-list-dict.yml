@@ -1,0 +1,21 @@
+---
+- name: demo-strings-linebreak-and-retain
+  hosts: east
+  vars:
+   my_list1: ['Douglas', 'Marvin', 'Arthur']
+   my_list2:
+     - apple
+     - orange
+     - grapes
+   my_dict1: {course1: rhce,course2: rhcsa, course3: ansible}
+   my_dict2:
+     place1: Mumbai
+     place2: Delhi
+  tasks:
+   - name: Diplay1
+     debug:
+      var: my_list1[1] 
+   - name: Diplay2
+     debug:
+      var: my_dict1['course1'] 
+...

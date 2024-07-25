@@ -1,0 +1,46 @@
+---
+- name: demo of playbook
+  hosts: all
+  tasks:
+    - name: task-without-tag
+      ansible.builtin.debug:
+       msg: Hello World from DO374-task-withouttag
+    - name: task1
+      ansible.builtin.debug:
+       msg: Hello World from DO374-task1
+      tags:
+       - mytag1
+    - name: task2
+      ansible.builtin.debug:
+       msg: Hello World from DO374-task2
+      tags:
+       - mytag1
+    - name: task3
+      ansible.builtin.debug:
+       msg: Hello World from DO374-task3-always
+      tags:
+       - always
+    - name: task4
+      ansible.builtin.debug:
+       msg: Hello World from DO374-task4-never
+      tags:
+       - never
+    - block:   
+      - name: task5
+        ansible.builtin.debug:
+         msg: Hello World from DO374-task5-in-block
+      - name: task6
+        ansible.builtin.debug:
+         msg: Hello World from DO374-task6-in-block
+      tags:
+       - mytag2
+    - name: task7-role
+      #include requires same tag inside role defnition
+      #import doesn't requires tag
+      include_role:
+      #import_role:
+        name: myfirewall
+      tags:
+       - mytag7
+
+...

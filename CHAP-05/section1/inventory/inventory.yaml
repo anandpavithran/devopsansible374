@@ -1,0 +1,39 @@
+all:
+  children:
+    big:
+      children:
+        east: {}
+        group1:
+          hosts:
+            servera.lab.example.com:
+              group1:
+                hosts:
+                - serverc.lab.example.com
+                - serverb.lab.example.com
+              group2:
+                hosts:
+                - serverd.lab.example.com
+                - serverd.lab.example.com
+            serverc.lab.example.com:
+              group1:
+                hosts:
+                - serverb.lab.example.com
+                - servera.lab.example.com
+              group2:
+                hosts:
+                - serverb.lab.example.com
+                - servera.lab.example.com
+        west:
+          hosts:
+            serverp:
+              http_port: 8080
+            serverq:
+              http_port: 8080
+    group2:
+      hosts:
+        serverc.lab.example.com: {}
+    north:
+      hosts:
+        serverp: {}
+        serverq: {}
+    ungrouped: {}

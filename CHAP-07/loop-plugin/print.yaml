@@ -1,0 +1,19 @@
+---
+   - name: Play 1 to deploy webserver
+     hosts: servera.lab.example.com
+     become: yes
+     remote_user: devops
+     tasks:
+      - name: Print
+        debug:
+          msg: "{{item}}"
+        #with_lines:
+         #- cat file1.txt
+        #loop: "{{lookup('file','file1.txt').splitlines()}}"
+        #with_file:
+        #with_random_choice:
+        with_fileglob: "*.txt"
+        # - file1.txt
+        # - file2.txt
+
+... 
