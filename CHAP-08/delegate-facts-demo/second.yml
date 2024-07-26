@@ -14,14 +14,14 @@
        socket: /var/lib/haproxy/stats
        backend: app
        wait: yes
-      delegate_to: test3.example.com
+      delegate_to: serverc.lab.example.com
 
     
     - name: WAIT FOR 10 SEC
       command: sleep 10
     
     - name: UPDATE the webpage
-      copy: content="DO447 TRAINING on {{ansible_fqdn}} -Modified" dest=/var/www/html/index.html
+      copy: content="DO374 TRAINING on {{ansible_fqdn}} -Modified" dest=/var/www/html/index.html
     
     - name: Keeping back the one webserver to cluster
       haproxy:
@@ -30,5 +30,5 @@
        socket: /var/lib/haproxy/stats
        backend: app
        wait: yes
-      delegate_to: test3.example.com
+      delegate_to: serverc.lab.example.com
     

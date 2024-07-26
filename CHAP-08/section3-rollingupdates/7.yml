@@ -1,0 +1,12 @@
+#to run a task once for an entire batch of hosts, rather than once for each host in the batch
+- name: run once
+  hosts: all
+  serial: 9
+  tasks:
+   - name: task1
+     command: uptime
+   - name: task2
+     command: uname -a
+     run_once: yes
+   - name: task3
+     command: date

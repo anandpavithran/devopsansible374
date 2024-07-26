@@ -1,0 +1,34 @@
+---
+ - name: Configuring webserver
+   hosts: web 
+   become: true
+   remote_user: devops
+   tasks:
+    - name: Install pack Webserver
+      ansible.builtin.yum: name=httpd state=present
+    - name: Deliver the webpage
+      ansible.builtin.copy: 
+        content: "DO374 TRAINING on {{ansible_fqdn}}" 
+        dest: /var/www/html/index.html
+    - name: Start and Enable the service
+      ansible.builtin.service: name=httpd state=started enabled=yes
+    - name: Open the firewall port
+      ansible.posix.firewalld: service=http immediate=yes state=enabled permanent=yes 
+ - name: Configuring HAPROXY server
+   hosts: ha
+   become: true
+   remote_user: devops
+   tasks:
+    - name: Install pack
+      ansible.builtin.yum: name=haproxy state=present
+    - name: Deliver the webpage
+      ansible.builtin.copy: src=haproxy1.cfg dest=/etc/haproxy/
+    - name: Start and Enable the service
+      ansible.builtin.service: name=haproxy state=started enabled=yes
+    - name: Open the firewall port
+      ansible.posix.firewalld: service=http immediate=yes state=enabled permanent=yes 
+    - name: Open the firewall port
+      ansible.posix.firewalld: port=8080/tcp immediate=yes state=enabled permanent=yes 
+    - name: Open the firewall port
+      ansible.posix.firewalld: port=8080/udp immediate=yes state=enabled permanent=yes 
+...

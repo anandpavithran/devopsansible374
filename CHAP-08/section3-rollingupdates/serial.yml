@@ -1,0 +1,14 @@
+---
+- name: demo
+  hosts: all
+ #serial: 50%
+  serial: 1
+  tasks:
+    - name: task1
+      ansible.builtin.debug:
+        msg: "{{ansible_fqdn}}"
+    - name: task2
+      ansible.builtin.command: notacommand
+    - name: task3
+      ansible.builtin.command: whoami
+...

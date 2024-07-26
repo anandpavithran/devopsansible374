@@ -1,0 +1,18 @@
+---
+- name: demo of delegation
+  hosts: servera
+  tasks:
+    - name: task1
+      ansible.builtin.setup:
+              #msg: "{{ansible_facts['fqdn']}} {{ansible_facts['eth0']['ipv4']['address']}}"
+      delegate_to: servere
+      delegate_facts: false
+      register: apple
+      #delegate_facts: true
+    - name: task2
+      ansible.builtin.debug:
+        var: apple
+       #msg: "{{ansible_facts['fqdn']}} {{ansible_facts['eth0']['ipv4']['address']}}"
+      #delegate_to: servere
+      #delegate_facts: true
+...

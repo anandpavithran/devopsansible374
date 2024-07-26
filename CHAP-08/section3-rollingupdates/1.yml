@@ -1,0 +1,13 @@
+# if serial is set Ansible will process each batch of hosts all the way through the play before starting the next batch. If all hosts in the current batch fail, the entire play is aborted and Ansible does not start the next batch.
+#If a task fails for a host, then it is dropped from the play, but Ansible will continue to run the remaining tasks in the play for other hosts. The play only stops if all hosts fail.Ansible keeps a list of the active servers for each batch in the ansible_play_batch variable
+- name: demo
+  hosts: all
+  serial: 1
+  tasks:
+   - name: task1
+     command: uptime
+   - name: task2
+     shell: source /tmp/a.sh
+     #command: notacommand 
+   - name: task3
+     command: date

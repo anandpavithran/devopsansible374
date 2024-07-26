@@ -1,0 +1,9 @@
+servera
+serverb
+[web]
+servera.lab.example.com
+serverb.lab.example.com
+
+[ha]
+serverc.lab.example.com
+
